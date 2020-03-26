@@ -1,3 +1,8 @@
+:root {
+  --container-width: 480px;
+  --grid-size: 16;
+}
+
 *,
 *::before,
 *::after {
@@ -19,19 +24,59 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   padding: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(16, 3rem);
-  grid-template-rows: repeat(16, 3rem);
+  width: var(--container-width);
+  height: var(--container-width);
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
 
 .item {
   background-color: tomato;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .item--colored {
   background-color: hsl(9, 70%, 34%);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: var(--container-width);
+  margin-bottom: 1rem;
+}
+
+.title {
+  line-height: 1;
+  font-size: 3.6rem;
+  margin-right: 3rem;;
+}
+
+.btn {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .3rem;
+  border: none;
+  background-color: hsl(15, 60%, 54%);
+  padding: 1rem 4rem;
+  border-radius: 3px;
+  transition: all .1s;
+}
+
+.btn:hover {
+  background-color: hsl(15, 60%, 40%);
+}
+
+.btn:active {
+  transform: scale(.98);
 }
