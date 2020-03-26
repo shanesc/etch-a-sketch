@@ -31,3 +31,7 @@ body {
   background-color: tomato;
   border: 1px solid black;
 }
+
+.item--colored {
+  background-color: hsl(9, 70%, 34%);
+}
