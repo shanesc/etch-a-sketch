@@ -1,12 +1,13 @@
 const container = document.querySelector('.container');
 const resetButton = document.querySelector('.btn-reset');
 
+container.addEventListener('mouseenter', randomColorBackground, true);
+
 function populateGrid(size) {
   document.documentElement.style.setProperty('--grid-size', size);
   for (let i = 0; i < size ** 2; i++) {
     let square = document.createElement('div');
     square.classList.add('item');
-    square.addEventListener('mouseenter', randomColorBackground);
     container.appendChild(square);
   }
 }
