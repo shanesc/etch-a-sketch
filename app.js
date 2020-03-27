@@ -6,7 +6,7 @@ function populateGrid(size) {
   for (let i = 0; i < size ** 2; i++) {
     let square = document.createElement('div');
     square.classList.add('item');
-    square.addEventListener('mouseenter', function() {square.classList.add('item--colored')});
+    square.addEventListener('mouseenter', randomColorBackground);
     container.appendChild(square);
   }
 }
@@ -28,6 +28,14 @@ function resetGrid() {
 
   removeAllChildElements(container);
   populateGrid(size);
+}
+
+function randomColorBackground(e) {
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+
+  e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
 document.addEventListener('DOMContentLoaded', populateGrid(16));
